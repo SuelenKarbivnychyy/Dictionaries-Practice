@@ -4,151 +4,171 @@
 dictionaries and sets.
 """
 from collections import Counter
+from gettext import find
 
-# def without_duplicates(words):
-#     """Given a list of words, return list with duplicates removed.
+def without_duplicates(words):
+    """Given a list of words, return list with duplicates removed.
 
-#     For example:
+    For example:
 
-#         >>> no_dupes = without_duplicates(
-#         ...     ["rose", "is", "a", "rose", "is", "a", "rose"])
+        >>> no_dupes = without_duplicates(
+        ...     ["rose", "is", "a", "rose", "is", "a", "rose"])
 
-#         >>> isinstance(no_dupes, list)
-#         True
+        >>> isinstance(no_dupes, list)
+        True
 
-#         >>> sorted(without_duplicates(
-#         ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
-#         ['a', 'is', 'rose']
+        >>> sorted(without_duplicates(
+        ...     ["rose", "is", "a", "rose", "is", "a", "rose"]))
+        ['a', 'is', 'rose']
 
-#     You should treat differently-capitalized words as different:
+    You should treat differently-capitalized words as different:
 
-#         >>> sorted(without_duplicates(
-#         ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
-#         ['Rose', 'a', 'is', 'rose']
+        >>> sorted(without_duplicates(
+        ...     ["Rose", "is", "a", "rose", "is", "a", "rose"]))
+        ['Rose', 'a', 'is', 'rose']
 
-#         An empty list should return an empty list:
+        An empty list should return an empty list:
 
-#         >>> sorted(without_duplicates(
-#         ...     []))
-#         []
+        >>> sorted(without_duplicates(
+        ...     []))
+        []
 
-#     The function should work for a list containing integers:
+    The function should work for a list containing integers:
 
-#         >>> sorted(without_duplicates([111111, 2, 33333, 2]))
-#         [2, 33333, 111111]
+        >>> sorted(without_duplicates([111111, 2, 33333, 2]))
+        [2, 33333, 111111]
 
-#     The function should return a variable of type list:
-#         >>> type(without_duplicates([111111, 2, 33333, 2]))
-#         <class 'list'>
-#     """
+    The function should return a variable of type list:
+        >>> type(without_duplicates([111111, 2, 33333, 2]))
+        <class 'list'>
+    """
 
 
-#     #Pseudocode : create an empty list
-#     # iterate through the given list
-#     # check if word is not in the list and append it
-#     #return new list
+    #Pseudocode : create an empty list
+    # iterate through the given list
+    # check if word is not in the list and append it
+    #return new list
     
 
-#     no_duplicate = []
+    no_duplicate = []
 
-#     for word in words:
+    for word in words:
         
-#         if not word in no_duplicate:
+        if not word in no_duplicate:
 
-#             no_duplicate.append(word)                
+            no_duplicate.append(word)                
 
-#     return no_duplicate
+    return no_duplicate
  
 
-# # remove_duplicates = without_duplicates(["Rose", "is", "a", "rose", "is", "a", "rose"]) 
-# remove_duplicates = without_duplicates([111111, 2, 33333, 2])
-# check_instance = isinstance(remove_duplicates, list) 
-# print(check_instance)
-# print(type(remove_duplicates))
-# print(sorted(remove_duplicates))
+# remove_duplicates = without_duplicates(["Rose", "is", "a", "rose", "is", "a", "rose"]) 
+remove_duplicates = without_duplicates([111111, 2, 33333, 2])
+check_instance = isinstance(remove_duplicates, list) 
+print(check_instance)
+print(type(remove_duplicates))
+print(sorted(remove_duplicates))
 
 
 
-# def find_unique_common_items(items1, items2):
-#     """Produce the set of *unique* common items in two lists.
+def find_unique_common_items(items1, items2):
+    """Produce the set of *unique* common items in two lists.
 
-#     Given two lists, return a set of the *unique* common items
-#     shared between the lists.
+    Given two lists, return a set of the *unique* common items
+    shared between the lists.
 
-#     **IMPORTANT**: you may not use `'if ___ in ___``
-#     or the method `list.index()`.
+    **IMPORTANT**: you may not use `'if ___ in ___``
+    or the method `list.index()`.
 
-#     This should return a set:
+    This should return a set:
 
-#         >>> unique_common_items = find_unique_common_items([1, 2, 3, 4], [2, 1])
-#         >>> isinstance(unique_common_items, set)
-#         True
+        >>> unique_common_items = find_unique_common_items([1, 2, 3, 4], [2, 1])
+        >>> isinstance(unique_common_items, set)
+        True
 
-#     This should find [1, 2]:
+    This should find [1, 2]:
 
-#         >>> sorted(find_unique_common_items([1, 2, 3, 4], [2, 1]))
-#         [1, 2]
+        >>> sorted(find_unique_common_items([1, 2, 3, 4], [2, 1]))
+        [1, 2]
 
-#     However, now we only want unique items, so for these lists,
-#     don't show more than 1 or 2 once:
+    However, now we only want unique items, so for these lists,
+    don't show more than 1 or 2 once:
 
-#         >>> sorted(find_unique_common_items([3, 2, 1], [1, 1, 2, 2]))
-#         [1, 2]
+        >>> sorted(find_unique_common_items([3, 2, 1], [1, 1, 2, 2]))
+        [1, 2]
 
-#     The elements should not be treated as duplicates if they are
-#     different data types:
+    The elements should not be treated as duplicates if they are
+    different data types:
 
-#         >>> sorted(find_unique_common_items(["2", "1", 2], [2, 1]))
-#         [2]
-#     """
-
-
-#     #Pseudocode:
-#     #created an empty set
-#     #iterate trough the list 1
-#     #check if each element has in list2
-#     #return set
-
-#     common_items = set()  #empty set
-
-#     common_items =set(items1).intersection(items2)
-#     # print(common_items) #testintg       
-#     return common_items
-
-# unique_common_items = find_unique_common_items(["2", "1", 2], [2, 1])
-# isinstance(unique_common_items, set)
-# sorted(unique_common_items)
-# print(unique_common_items)    
+        >>> sorted(find_unique_common_items(["2", "1", 2], [2, 1]))
+        [2]
+    """
 
 
-# def get_sum_zero_pairs(numbers):
-#     """Given list of numbers, return list of pairs summing to 0.
+    #Pseudocode:
+    #created an empty set
+    #iterate trough the list 1
+    #check if each element has in list2
+    #return set
 
-#     Given a list of numbers, add up each individual pair of numbers.
-#     Return a list of each pair of numbers that adds up to 0.
+    common_items = set()  #empty set
 
-#     For example:
+    common_items =set(items1).intersection(items2)
+    # print(common_items) #testintg       
+    return common_items
 
-#         >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1]) )
-#         [[-2, 2], [-1, 1]]
+unique_common_items = find_unique_common_items(["2", "1", 2], [2, 1])
+isinstance(unique_common_items, set)
+sorted(unique_common_items)
+print(unique_common_items)    
 
-#         >>> sort_pairs( get_sum_zero_pairs([3, -3, 2, 1, -2, -1]) )
-#         [[-3, 3], [-2, 2], [-1, 1]]
 
-#     This should always be a unique list, even if there are
-#     duplicates in the input list:
+def get_sum_zero_pairs(numbers):
+    """Given list of numbers, return list of pairs summing to 0.
 
-#         >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1, 1, 1]) )
-#         [[-2, 2], [-1, 1]]
+    Given a list of numbers, add up each individual pair of numbers.
+    Return a list of each pair of numbers that adds up to 0.
 
-#     Of course, if there are one or more zeros to pair together,
-#     that's fine, too (even a single zero can pair with itself):
+    For example:
 
-#         >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
-#         [[-1, 1], [0, 0]]
-#     """
+        >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1]) )
+        [[-2, 2], [-1, 1]]
 
-#     return []
+        >>> sort_pairs( get_sum_zero_pairs([3, -3, 2, 1, -2, -1]) )
+        [[-3, 3], [-2, 2], [-1, 1]]
+
+    This should always be a unique list, even if there are
+    duplicates in the input list:
+
+        >>> sort_pairs( get_sum_zero_pairs([1, 2, 3, -2, -1, 1, 1]) )
+        [[-2, 2], [-1, 1]]
+
+    Of course, if there are one or more zeros to pair together,
+    that's fine, too (even a single zero can pair with itself):
+
+        >>> sort_pairs( get_sum_zero_pairs([1, 3, -1, 1, 1, 0]) )
+        [[-1, 1], [0, 0]]
+    """
+
+
+    pairs_sum = []
+
+    # print(numbers)
+    
+    for i in range(len(numbers)):
+        # print(numbers[index])
+
+        for j in range(i , len(numbers)):
+
+            if numbers[i] + numbers[j] == 0:
+                pairs = sorted([numbers[i], numbers[j]])
+
+                if pairs not in pairs_sum:
+                    pairs_sum.append(pairs)        
+
+    return pairs_sum
+
+sort_pairs = (get_sum_zero_pairs([1, 2, 3, -2, -1, 1, 1, 0]))   
+print(sort_pairs)
 
 
 def top_chars(phrase):
